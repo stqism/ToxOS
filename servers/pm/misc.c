@@ -32,7 +32,7 @@
 #include "kernel/proc.h"
 
 struct utsname uts_val = {
-  "Minix",		/* system name */
+  "ToxOS",		/* system name */
   "noname",		/* node/network name */
   OS_RELEASE,		/* O.S. release (e.g. 1.5) */
   OS_VERSION,		/* O.S. version (e.g. 10) */
