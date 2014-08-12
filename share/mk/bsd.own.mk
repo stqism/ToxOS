@@ -1112,17 +1112,16 @@ ${var}?= yes
 .endif
 .endfor
 
-#hardcoded
-USE_WATCHDOG=yes
-USE_ACPI=yes
-USE_APIC=yes
-USE_MCONTEXT=yes
-USE_DEBUGREG=no
-USE_SYSDEBUG=no
-USE_LIVEUPDATE=yes
-USE_STATECTL=no
-USE_TRACE=no
-USE_PCI=yes
+#MINIX-specific vars
+.for var in \
+	USE_WATCHDOG USE_ACPI USE_APIC USE_MCONTEXT USE_DEBUGREG USE_SYSDEBUG \
+	USE_LIVEUPDATE USE_STATECTL USE_TRACE USE_PCI
+.if (${${var:S/USE_/MK/}} == "no")
+${var}:= no
+.else
+${var}?= yes
+.endif
+.endfor
 
 #
 # USE_* options which default to "yes".
